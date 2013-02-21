@@ -17,4 +17,4 @@ name: Plack-Middleware-Debug-Ajax
 requires:
   Plack: 1.0016
   Plack::Middleware::Debug: 0.14
-version: 0.01
+version: 0.02

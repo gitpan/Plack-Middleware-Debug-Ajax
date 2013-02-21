@@ -26,7 +26,7 @@ my %WriteMakefileArgs = (
     "Plack" => "1.0016",
     "Plack::Middleware::Debug" => "0.14"
   },
-  "VERSION" => "0.01",
+  "VERSION" => "0.02",
   "test" => {
     "TESTS" => "t/*.t"
   }

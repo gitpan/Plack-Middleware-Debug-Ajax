@@ -3,7 +3,7 @@ use warnings;
 
 package Plack::Middleware::Debug::Ajax;
 {
-  $Plack::Middleware::Debug::Ajax::VERSION = '0.01';
+  $Plack::Middleware::Debug::Ajax::VERSION = '0.02';
 }
 
 use parent 'Plack::Middleware::Debug::Base';
@@ -16,7 +16,7 @@ Plack::Middleware::Debug::Ajax - Show log of ajax requests/responses
 
 =head1 VERSION
 
-version 0.01
+version 0.02
 
 =head1 SYNOPSIS
 
@@ -141,7 +141,7 @@ sub run {
    ## Settings
    ##
 
-   my $log_limit = $self->log_limit // 50;
+   my $log_limit = $self->log_limit || 50;
 
    ##
    ## Set titles
@@ -183,7 +183,8 @@ sub run {
                      ).css("background-color", data.color)
                   );
 
-                  // Trim log 
+                  // Trim log (0-indexed)
+                  \$('#${id}-ajaxTable > tbody > tr:eq($log_limit)').remove();
                   \$('#${id}-ajaxTable > tbody > tr:gt($log_limit)').remove();
                }
 
